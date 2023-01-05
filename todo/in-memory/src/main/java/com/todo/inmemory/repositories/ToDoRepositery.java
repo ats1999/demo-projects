@@ -3,7 +3,7 @@ package com.todo.inmemory.repositories;
 import java.util.ArrayList;
 
 import com.todo.inmemory.DataBase;
-import com.todo.inmemory.modles.ToDo;
+import com.todo.inmemory.models.ToDo;
 
 public class ToDoRepositery {
 	public ToDo getToDoById(long todoId) {

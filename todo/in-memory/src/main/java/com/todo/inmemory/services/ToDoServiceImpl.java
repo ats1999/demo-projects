@@ -3,7 +3,7 @@ package com.todo.inmemory.services;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import com.todo.inmemory.modles.ToDo;
+import com.todo.inmemory.models.ToDo;
 import com.todo.inmemory.repositories.ToDoRepositery;
 
 public class ToDoServiceImpl implements ToDoService{
