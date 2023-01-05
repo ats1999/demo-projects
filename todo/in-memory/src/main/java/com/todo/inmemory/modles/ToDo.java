@@ -1,4 +1,4 @@
-package models;
+package com.todo.inmemory.modles;
 
 public class ToDo {
 	private long id;

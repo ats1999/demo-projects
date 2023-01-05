@@ -1,11 +1,9 @@
 package com.todo.inmemory.repositories;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import com.todo.inmemory.DataBase;
-
-import models.ToDo;
+import com.todo.inmemory.modles.ToDo;
 
 public class ToDoRepositery {
 	public ToDo getToDoById(long todoId) {

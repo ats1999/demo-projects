@@ -2,7 +2,7 @@ package com.todo.inmemory.services;
 
 import java.util.ArrayList;
 
-import models.ToDo;
+import com.todo.inmemory.modles.ToDo;
 
 public interface ToDoService {
 	public ToDo getToDo(long todoId);
