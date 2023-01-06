@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.todo.inmemory.exceptions.UnprocessableEntityHttpException;
 import com.todo.inmemory.models.ToDo;
 import com.todo.inmemory.services.ToDoService;
 import com.todo.inmemory.services.ToDoServiceImpl;
@@ -65,17 +66,9 @@ public class ToDoController {
 	}
 	
 	@DeleteMapping("/{todoId}")
-	public ResponseEntity<String> deleteToDo(@PathVariable long todoId) {
-		boolean deleted = service.deleteToDo(todoId);
+	public ResponseEntity<String> deleteToDo(@PathVariable long todoId) throws UnprocessableEntityHttpException {
+		service.deleteToDo(todoId);
 		
-		ResponseEntity<String> response;
-		
-		if(deleted) {
-			response = new ResponseEntity<>("Deleted todo",HttpStatus.OK);
-		}else {
-			response = new ResponseEntity<>("Todo not found",HttpStatus.UNPROCESSABLE_ENTITY);
-		}
-		
-		return response;
+		return new ResponseEntity<>("Deleted todo",HttpStatus.OK);
 	}
 }

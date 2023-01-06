@@ -3,6 +3,7 @@ package com.todo.inmemory.repositories;
 import java.util.ArrayList;
 
 import com.todo.inmemory.DataBase;
+import com.todo.inmemory.exceptions.UnprocessableEntityHttpException;
 import com.todo.inmemory.models.ToDo;
 
 public class ToDoRepositery {
@@ -38,7 +39,7 @@ public class ToDoRepositery {
 		return false;
 	}
 	
-	public boolean deleteToDoById(long todoId) {
+	public boolean deleteToDoById(long todoId) throws UnprocessableEntityHttpException {
 		for(int todoIdx = 0; todoIdx < DataBase.todos.size(); todoIdx++) {
 			ToDo todo = DataBase.todos.get(todoIdx);
 			if(todo.getId() == todoId) {
@@ -46,6 +47,8 @@ public class ToDoRepositery {
 				return true;
 			}
 		}
-		return false;
+		
+		// TODO: create custom exception classes
+		throw new UnprocessableEntityHttpException("ToDo not found");
 	}
 }

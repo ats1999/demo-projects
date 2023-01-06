@@ -2,6 +2,7 @@ package com.todo.inmemory.services;
 
 import java.util.ArrayList;
 
+import com.todo.inmemory.exceptions.UnprocessableEntityHttpException;
 import com.todo.inmemory.models.ToDo;
 
 public interface ToDoService {
@@ -9,5 +10,5 @@ public interface ToDoService {
 	public ArrayList<ToDo> getToDos();
 	public void createToDo(ToDo todo);
 	public boolean updateToDo(ToDo todo);
-	public boolean deleteToDo(long todoId);
+	public void deleteToDo(long todoId) throws UnprocessableEntityHttpException;
 }

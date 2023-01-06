@@ -3,6 +3,7 @@ package com.todo.inmemory.services;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import com.todo.inmemory.exceptions.UnprocessableEntityHttpException;
 import com.todo.inmemory.models.ToDo;
 import com.todo.inmemory.repositories.ToDoRepositery;
 
@@ -33,8 +34,8 @@ public class ToDoServiceImpl implements ToDoService{
 	}
 
 	@Override
-	public boolean deleteToDo(long todoId) {
-		return repo.deleteToDoById(todoId);
+	public void deleteToDo(long todoId) throws UnprocessableEntityHttpException {
+		repo.deleteToDoById(todoId);
 	}
 	
 }
