@@ -1,1 +1,1 @@
-# spring-projects
+# demo-projects
