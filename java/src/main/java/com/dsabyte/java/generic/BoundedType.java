@@ -1,7 +1,7 @@
 package com.dsabyte.java.generic;
 
 public class BoundedType {
-	// T extends Number -> this can be applied to even type(classes)
+//	https://docs.oracle.com/javase/tutorial/java/generics/bounded.html
 	static <T extends Number> boolean isEven(T num) {
 		return num.intValue() % 2 == 0;
 	}
