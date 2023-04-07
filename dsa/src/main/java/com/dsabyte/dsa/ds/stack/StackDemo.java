@@ -1,38 +1,60 @@
 package com.dsabyte.dsa.ds.stack;
 
 public class StackDemo {
-	static class Stack{
-		int ar[];
-		int top;
-		
-		Stack(int size){
-			ar = new int[size];
-			top = -1;
+	static class Stack<T> implements StackBase<Integer> {
+		private Integer[] stack;
+		private int top = -1;
+
+		Stack(int size) {
+			stack = new Integer[size];
 		}
-		
-		void push(int item) {
-			ar[++top] = item;
+
+		public void push(Integer item) {
+			if (isFull()) {
+				System.out.println("Stack is full...");
+				return;
+			}
+			stack[++top] = item;
 		}
-		
-		void pop() {
+
+		public void pop() {
+			if (isEmpty()) {
+				System.out.println("Stack is empty...");
+				return;
+			}
 			top--;
 		}
-		
-		int peek() {
-			return ar[top];
+
+		public Integer peek() {
+			if (isEmpty()) {
+				System.out.println("Stack is empty...");
+				return null;
+			}
+			
+			return stack[top];
 		}
-		
-		boolean isEmpty() {
-			return top == -1;
+
+		public boolean isEmpty() {
+			return top < 0;
 		}
-		
-		boolean isFull() {
-			return top == (ar.length-1);
+
+		public boolean isFull() {
+			return top == stack.length - 1;
 		}
-		
+
 	}
+
 	public static void main(String[] args) {
-		
+		Stack<Integer> stack = new Stack<Integer>(10);
+		stack.peek();
+		stack.push(4);
+		System.out.println(stack.peek());
+		stack.push(4);
+		stack.push(3);
+		stack.push(89);
+		System.out.println(stack.peek());
+		stack.pop();
+		System.out.println(stack.peek());
 	}
 
 }
