@@ -22,7 +22,8 @@ public class ToDoController {
 	ToDoService toDoService;
 	
 	@PostMapping
-	public String createToDo(@RequestBody String name) {
+	public String createToDo(@RequestBody String name) throws InterruptedException {
+		Thread.sleep(100);
 		return toDoService.createToDo(name);
 	}
 
