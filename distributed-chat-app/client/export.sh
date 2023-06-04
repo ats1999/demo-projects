@@ -1,0 +1,1 @@
+npm run build && npm run export && cp -r out/* ~/Desktop/projects/demo-projects/distributed-chat-app/server/src/main/resources/static
