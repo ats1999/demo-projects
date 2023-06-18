@@ -13,7 +13,7 @@ export default function Home() {
 
     const socket = new SockJS("http://localhost:8080/test", {});
     const stompClient = webstomp.over(socket, { debug: true });
-    stompClient.connect({}, function (frame) {
+    stompClient.connect({ name: "Rahul Kumar" }, function (frame) {
       window.stompClient = stompClient;
       console.log("stompClient Connected..");
       stompClient.send(`/app/user/${router.query.uid}`, router.query.name);
@@ -21,6 +21,7 @@ export default function Home() {
       stompClient.subscribe(`/topic/user/${router.query.uid}`, (msg) => {
         console.log(msg);
       });
+      stompClient.unsubscribe(`/topic/user/${router.query.uid}`);
     });
   }, [router]);
 
