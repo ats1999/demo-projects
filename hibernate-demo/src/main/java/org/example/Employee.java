@@ -2,6 +2,7 @@ package org.example;
 
 import lombok.Data;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 public class Employee {
@@ -9,4 +10,5 @@ public class Employee {
     private String name;
     private String role;
     private Date insertTime;
+    private Set<String> tags;
 }

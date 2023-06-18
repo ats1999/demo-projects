@@ -10,7 +10,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"> </property>
         <!-- Connection Pool Size -->
-        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.connection.pool_size">10</property>
 
         <!-- org.hibernate.HibernateException: No CurrentSessionContext configured! -->
         <property name="hibernate.current_session_context_class">thread</property>
@@ -24,6 +24,6 @@
         
         <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- mapping file, we can use Bean annotations too -->
-        <mapping resource="employee.hbm.xml" />
+<!--        <mapping resource="employee.hbm.xml" />-->
     </session-factory>
 </hibernate-configuration>

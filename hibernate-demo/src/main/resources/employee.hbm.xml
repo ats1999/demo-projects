@@ -17,5 +17,9 @@
         <property name="insertTime" type="timestamp">
             <column name="insert_time" />
         </property>
+
+        <property name="tags">
+<!--            <column name="tags" />-->
+        </property>
     </class>
 </hibernate-mapping>
