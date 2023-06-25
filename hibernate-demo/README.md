@@ -1,0 +1,8 @@
+- [ ] Entity inheritance 
+- [ ] Snake Case Naming of entity and columns
+- [ ] Lazy loading - embedded, ManyToOne, ManyToMany, Inheritance, ElementCollection, etc
+- [ ] catlog, schema, etc optional attributes of annotations 
+- [ ] entity or object as keys of Map in RDBMS
+- [ ] how can i scan a entire package, instead of individual classes?
+- [ ] query?
+- [ ] Read JPA again, access entity manager, etc

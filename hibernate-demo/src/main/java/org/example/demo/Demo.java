@@ -1,11 +1,9 @@
 package org.example.demo;
 
 import com.github.javafaker.Faker;
-import org.example.model.Address;
-import org.example.model.Location;
-import org.example.model.User;
+import org.example.model.Person;
 import org.example.util.HibernateUtils;
-import org.example.util.Utils;
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 
 import java.util.HashMap;
@@ -14,42 +12,71 @@ import java.util.Map;
 import java.util.Set;
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Faker faker = new Faker();
         Session session = HibernateUtils.getSession();
 
-        User user = new User();
-        user.setName(faker.name().fullName());
-        user.setAge(Utils.getRandomAge());
 
-        // set tags - see model
-        Set<String> tags = new HashSet<>();
-        tags.add("Java");
-        tags.add("C++");
-        user.setTags(tags);
+//        Person p = new Person();
+//        p.setName(faker.name().fullName());
+//        p.setAmount(faker.number().numberBetween(100, 100 * 100));
+//
+//        System.out.println("Person: " + p);
 
-        // set marks
-        Map<String,Integer> marks = new HashMap<>();
-        marks.put("Java",90);
-        marks.put("Python",10);
-        user.setMarks(marks);
+//        Person p = session.get(Person.class, 1);
+//        p.setAmount(p.getAmount() + 100);
+//        session.beginTransaction();
+//        session.persist(p);
+//
+//        System.out.println("Started persisting...");
+//        Thread.sleep(2 * 60 * 1000);
+//        System.out.println("Persisted the entity...");
+//
+//        session.getTransaction().commit();
+//
+//
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Session session = HibernateUtils.getSession(Person.class);
+                Person p = session.get(Person.class,1);
+                session.lock(p, LockMode.PESSIMISTIC_WRITE);
+                p.setAmount(p.getAmount()+100);
+                session.beginTransaction();
 
-        // set address
-        Address address = new Address();
-        address.setHome(faker.address().streetAddress());
-        address.setOffice(faker.address().secondaryAddress());
-        user.setAddress(address);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
 
-        // set localtion
-        Location location = new Location();
-        location.setLatitude(12);
-        location.setLongitude(90);
-        address.setLocation(location);
+                session.persist(p);
+                session.getTransaction().commit();
+                System.out.println("Done1");
+            }
+        }).start();
 
-        session.beginTransaction();
-        session.persist(user);
-        session.getTransaction().commit();
 
-        System.out.println("Saved: " + user);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Session session = HibernateUtils.getSession();
+//                Person p = session.get(Person.class,1);
+//                session.lock(p, LockMode.PESSIMISTIC_WRITE);
+//                p.setAmount(p.getAmount()+100);
+//                session.beginTransaction();
+//
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//
+//                session.persist(p);
+//                session.getTransaction().commit();
+//
+//                System.out.println("Done2");
+//            }
+//        }).start();
     }
 }

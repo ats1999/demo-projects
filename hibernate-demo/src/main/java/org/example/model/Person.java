@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 @Entity
-public class UserWithColumnAnnotation {
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "userName")
+    private int amount;
     private String name;
-    private int age;
+    @Version
+    private int version;
 }
