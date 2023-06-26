@@ -2,6 +2,8 @@ package com.example.todospringhibernate.service;
 
 import com.example.todospringhibernate.model.Todo;
 import com.example.todospringhibernate.model.UpdateTodoDTO;
+
+import java.util.List;
 import java.util.Optional;
 
 public interface TodoService {
@@ -10,6 +12,6 @@ public interface TodoService {
     Iterable<Todo> getAllTodo();
     Todo updateTodo(Long id,UpdateTodoDTO updateTodoDTO);
     String deleteTodo(Long id);
-
     Long count();
+    List<Todo> search(String filter);
 }

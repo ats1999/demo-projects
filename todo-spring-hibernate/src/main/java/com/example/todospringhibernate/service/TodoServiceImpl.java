@@ -5,6 +5,8 @@ import com.example.todospringhibernate.model.UpdateTodoDTO;
 import com.example.todospringhibernate.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -65,5 +67,14 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public Long count() {
         return todoRepository.count();
+    }
+
+    @Override
+    public List<Todo> search(String filter) {
+        if(filter == null || filter.isEmpty()){
+            return new ArrayList<>();
+        }
+
+        return todoRepository.search(filter);
     }
 }

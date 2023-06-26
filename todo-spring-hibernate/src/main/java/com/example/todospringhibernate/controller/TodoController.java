@@ -5,6 +5,7 @@ import com.example.todospringhibernate.model.UpdateTodoDTO;
 import com.example.todospringhibernate.service.TodoService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -44,5 +45,10 @@ public class TodoController {
     @GetMapping("/count")
     Long count(){
         return todoService.count();
+    }
+
+    @GetMapping("/search")
+    List<Todo> search(@RequestParam String filter){
+        return  todoService.search(filter);
     }
 }
