@@ -61,4 +61,9 @@ public class TodoServiceImpl implements TodoService {
         todoRepository.deleteById(id);
         return "Delete todo " + id;
     }
+
+    @Override
+    public Long count() {
+        return todoRepository.count();
+    }
 }

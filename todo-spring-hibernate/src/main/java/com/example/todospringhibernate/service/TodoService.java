@@ -10,4 +10,6 @@ public interface TodoService {
     Iterable<Todo> getAllTodo();
     Todo updateTodo(Long id,UpdateTodoDTO updateTodoDTO);
     String deleteTodo(Long id);
+
+    Long count();
 }

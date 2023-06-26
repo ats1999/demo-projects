@@ -40,4 +40,9 @@ public class TodoController {
     String deleteTodo(@PathVariable Long id) {
         return todoService.deleteTodo(id);
     }
+
+    @GetMapping("/count")
+    Long count(){
+        return todoService.count();
+    }
 }
