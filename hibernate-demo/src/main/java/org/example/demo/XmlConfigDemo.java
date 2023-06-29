@@ -13,7 +13,8 @@ import java.util.Set;
 public class XmlConfigDemo {
     public static void main(String[] args){
         Configuration configuration = new Configuration();
-        configuration.configure("hibernate.cfg.xml");
+        configuration.configure(
+                "hibernate.cfg.xml");
 
         try(
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

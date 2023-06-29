@@ -36,18 +36,20 @@ public class AnnotationConfigDemo {
     }
 
     public static void main(String[] args) {
-        try (ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                .configure("hibernate.cfg.xml")
-                .build()
+        try (
+                ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                        .configure("hibernate.cfg.xml")
+                        .build()
         ) {
             Metadata metadata = new MetadataSources(serviceRegistry)
                     // TODO: how can i scan a entire package, instead of individual classes?
                     .addAnnotatedClass(User.class)
                     .buildMetadata();
 
-            try (SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
+            try (
+                    SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
             ) {
-                insertRandomUsers(100,sessionFactory);
+                insertRandomUsers(100, sessionFactory);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

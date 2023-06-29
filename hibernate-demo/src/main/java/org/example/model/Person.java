@@ -11,6 +11,4 @@ public class Person {
     private int id;
     private int amount;
     private String name;
-    @Version
-    private int version;
 }
