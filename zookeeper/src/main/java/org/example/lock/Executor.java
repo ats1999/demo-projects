@@ -37,7 +37,12 @@ public class Executor implements Runnable {
 
     boolean acquireLock() throws InterruptedException, KeeperException {
         if(this.lockPath == null) {
-            this.lockPath = this.zk.create(LOCK_PATH + "/", new byte[0], ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+            this.lockPath = this.zk.create(
+                    LOCK_PATH + "/",
+                    new byte[0],
+                    ZooDefs.Ids.OPEN_ACL_UNSAFE,
+                    CreateMode.EPHEMERAL_SEQUENTIAL
+            );
         }
 
         List<String> children = zk.getChildren(LOCK_PATH,false);
@@ -60,10 +65,10 @@ public class Executor implements Runnable {
             Thread.sleep(oneSecond);
         }
 
-        System.out.println("Lock acquired: "+Thread.currentThread().getName());
+        System.out.printf("Lock acquired for task %d by thread %s\n ",task,Thread.currentThread().getName());
         Thread.sleep(oneSecond); // busy processing simulation
         this.releaseLock();
-        System.out.println("Lock released: "+Thread.currentThread().getName());
+        System.out.printf("Lock released for task %d by thread %s\n ",task,Thread.currentThread().getName());
     }
 
     public void doProcessing() throws InterruptedException, KeeperException {
