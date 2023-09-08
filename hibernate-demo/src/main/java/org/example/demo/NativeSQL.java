@@ -23,6 +23,5 @@ public class NativeSQL {
             System.out.println(o[0] + ", " + o[1]);
         });
 
-
     }
 }

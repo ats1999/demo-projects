@@ -2,14 +2,14 @@ package com.dsabyte.dsa.ds.stack;
 
 public class StackDemo {
 	static class Stack<T> implements StackBase<Integer> {
-		private Integer[] stack;
+		private final Integer[] stack;
 		private int top = -1;
 
-		Stack(int size) {
+		Stack(final int size) {
 			stack = new Integer[size];
 		}
 
-		public void push(Integer item) {
+		public void push(final Integer item) {
 			if (isFull()) {
 				System.out.println("Stack is full...");
 				return;
@@ -30,7 +30,7 @@ public class StackDemo {
 				System.out.println("Stack is empty...");
 				return null;
 			}
-			
+
 			return stack[top];
 		}
 

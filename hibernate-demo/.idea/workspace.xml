@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cdbfe72-b090-4e7e-b03f-124a0b701477" name="Changes" comment="Test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/HQL_AND_JPQL_Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/NativeSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/AnnotationConfigDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/AnnotationConfigDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/XmlConfigDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/XmlConfigDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/NativeSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/NativeSQL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +53,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Demo">
@@ -228,5 +222,9 @@
     <MESSAGE value="Hibernate many to one" />
     <MESSAGE value="Test" />
     <option name="LAST_COMMIT_MESSAGE" value="Test" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
