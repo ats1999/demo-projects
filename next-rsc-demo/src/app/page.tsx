@@ -8,16 +8,16 @@ function sleep(ms: number) {
   });
 }
 
-async function getData() {
+async function getData(idx: number) {
   const res = await fetch(
     "https://azure-container-app-test.yellowmeadow-8ca1e717.eastus2.azurecontainerapps.io"
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
-  console.log("Sleep started: ", new Date().toLocaleTimeString());
-  await sleep(10 * 60 * 1000);
-  console.log("Sleep Finished: ", new Date().toLocaleTimeString());
+  console.log("Sleep started: ", idx, new Date().toLocaleTimeString());
+  await sleep(1 * 60 * 1000);
+  console.log("Sleep Finished: ", idx, new Date().toLocaleTimeString());
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
@@ -27,7 +27,10 @@ async function getData() {
 }
 
 export default async function Home() {
-  const data = await getData();
+  let data = null;
+  for (let i = 0; i < 10; i++) {
+    data = await getData(i);
+  }
   return (
     <main>
       <Client data={data}></Client>
